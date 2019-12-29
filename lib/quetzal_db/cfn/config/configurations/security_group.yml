@@ -1,0 +1,9 @@
+SourceSecurityGroup:
+  resource_name: QuetzalDbAccessGroup
+  properties:
+    GroupDescription: Quetzal DBs access security group
+
+TargetSecurityGroup:
+  resource_name: QuetzalDbTargetGroup
+  properties:
+    GroupDescription: Quetzal DBs security group

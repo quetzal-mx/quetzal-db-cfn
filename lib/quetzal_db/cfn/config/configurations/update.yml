@@ -1,0 +1,19 @@
+Update:
+  config:
+    resources:
+      - QuetzalDb::Cfn::Parameters
+      - QuetzalDb::Cfn::SecretsManager::RootSecret
+      - QuetzalDb::Cfn::SecretsManager::DDLSecret
+      - QuetzalDb::Cfn::SecretsManager::DMLSecret
+      - QuetzalDb::Cfn::SecretsManager::TargetAttachment
+      - QuetzalDb::Cfn::RDS::QuetzalDb
+      - QuetzalDb::Cfn::Mappings
+      - QuetzalDb::Cfn::Outputs
+      - class: QuetzalDb::Cfn::SecurityGroup
+        config: SourceSecurityGroup
+      - class: QuetzalDb::Cfn::SecurityGroup
+        config: TargetSecurityGroup
+      - class: QuetzalDb::Cfn::SecurityGroupIngress
+        config: TargetSecurityGroupIngress
+      - class: QuetzalDb::Cfn::SecurityGroupEgress
+        config: AccessSecurityGroupEgress

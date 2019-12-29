@@ -1,0 +1,6 @@
+Mappings:
+  config:
+    mappings:
+      Stages:
+        beta:
+          DBInstanceType: db.t3.micro
