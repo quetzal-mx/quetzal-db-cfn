@@ -1,0 +1,9 @@
+RDS:
+  submodules:
+    QuetzalDb:
+      resource_name: QuetzalDB
+      properties:
+        AllocatedStorage: 20
+        DBName: quetzal_db
+        Engine: postgres
+        EngineVersion: 11.5

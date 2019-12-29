@@ -1,0 +1,15 @@
+Outputs:
+  config:
+    outputs:
+      QuetzalDbPort:
+        description: Quetzal DB port
+        value:
+          func: FnGetAtt
+          resource_class: QuetzalDb::Cfn::RDS::QuetzalDb
+          value: Endpoint.Port
+      QuetzalDbEndpoint:
+        description: Quetzal DB endpoint 
+        value:
+          func: FnGetAtt
+          resource_class: QuetzalDb::Cfn::RDS::QuetzalDb
+          value: Endpoint.Address
