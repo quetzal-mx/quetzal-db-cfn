@@ -21,6 +21,7 @@ module QuetzalDb
                 resource_class = value[:resource_class].constantize
 
                 Value send(value[:func], resource_class.resource_name, value[:value])
+                Export FnSub("${AWS::StackName}-#{output}")
               end
             end
           end
