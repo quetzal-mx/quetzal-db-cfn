@@ -34,6 +34,20 @@ RSpec.describe QuetzalDb::Cfn::Outputs do
             'Fn::Sub' => '${AWS::StackName}-QuetzalDbPort'
           }
         }
+      },
+      'AccessSecurityGroup' => {
+        'Description' => 'Quetzal DB Security Group',
+        'Value' => {
+          'Fn::GetAtt' => %w[
+            QuetzalDbAccessGroup
+            GroupId
+          ]
+        },
+        'Export' => {
+          'Name' => {
+            'Fn::Sub' => '${AWS::StackName}-AccessSecurityGroup'
+          }
+        }
       }
     }
   end

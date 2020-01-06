@@ -18,13 +18,21 @@ module QuetzalDb
               Output(output) do
                 Description conf[:description]
                 value = conf[:value]
-                resource_class = value[:resource_class].constantize
+                resource_name = this.resource_name_from_conf(conf: value)
 
-                Value send(value[:func], resource_class.resource_name, value[:value])
+                Value send(value[:func], resource_name, value[:value])
                 Export FnSub("${AWS::StackName}-#{output}")
               end
             end
           end
+        end
+
+        # @param conf [Hash]
+        # @return [String]
+        def resource_name_from_conf(conf:)
+          return conf[:resource_class].constantize.resource_name if conf[:resource_class].present?
+
+          ::QuetzalDb::Cfn::Config[conf[:config_name].to_sym][:resource_name]
         end
       end
 
