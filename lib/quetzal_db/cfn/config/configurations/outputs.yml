@@ -13,3 +13,9 @@ Outputs:
           func: FnGetAtt
           resource_class: QuetzalDb::Cfn::RDS::QuetzalDb
           value: Endpoint.Address
+      AccessSecurityGroup:
+        description: Quetzal DB Security Group
+        value:
+          func: FnGetAtt
+          config_name: SourceSecurityGroup
+          value: GroupId

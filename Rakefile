@@ -20,6 +20,7 @@ namespace :template do
 
   task :upload do
     # TODO: integrar con cloudformation
+    # TODO: verificar que el archivo haya cambiado 
     sh 'aws s3 cp quetzal-db-cfn.zip s3://quetzaldbpipeline-quetzaldbdeploymentsbucket-166eqau2wcegd/quetzal-db-cfn.zip'
   end
 
