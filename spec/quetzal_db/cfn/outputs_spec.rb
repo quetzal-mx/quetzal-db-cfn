@@ -14,6 +14,11 @@ RSpec.describe QuetzalDb::Cfn::Outputs do
             QuetzalDB
             Endpoint.Address
           ]
+        },
+        'Export' => {
+          'Name' => {
+            'Fn::Sub' => '${AWS::StackName}-QuetzalDbEndpoint'
+          }
         }
       },
       'QuetzalDbPort' => {
@@ -23,6 +28,11 @@ RSpec.describe QuetzalDb::Cfn::Outputs do
             QuetzalDB
             Endpoint.Port
           ]
+        },
+        'Export' => {
+          'Name' => {
+            'Fn::Sub' => '${AWS::StackName}-QuetzalDbPort'
+          }
         }
       }
     }
