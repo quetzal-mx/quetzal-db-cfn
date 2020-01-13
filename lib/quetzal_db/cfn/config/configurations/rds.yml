@@ -7,3 +7,8 @@ RDS:
         DBName: quetzal_db
         Engine: postgres
         EngineVersion: 11.5
+
+QuetzalDbSubnetGroup:
+  resource_name: QuetzalDbSubnetGroup
+  properties:
+    DBSubnetGroupDescription: Quetzal DB subnets group

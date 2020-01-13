@@ -30,9 +30,6 @@ module QuetzalDb
         proc do
           Resource resource.resource_name do
             Type 'AWS::EC2::SecurityGroupEgress'
-            Property :DestinationSecurityGroupId, FnGetAtt(
-              config[resource.target_group.to_sym][:resource_name], :GroupId
-            )
             Property :GroupId, FnGetAtt(config[resource.source_group.to_sym][:resource_name], :GroupId)
             resource.properties.each do |property, conf|
               Property property, conf

@@ -2,13 +2,16 @@
 
 module QuetzalDb
   module Cfn
-    module RDS
+    module EC2
       extend ActiveSupport::Autoload
       extend Config::Configurable
 
       eager_autoload do
-        autoload :QuetzalDb
-        autoload :SubnetGroup
+        autoload :RouteTable
+        autoload :RouteTableAssociation
+        autoload :Route
+        autoload :EIP
+        autoload :NATGateway
       end
 
       eager_load!

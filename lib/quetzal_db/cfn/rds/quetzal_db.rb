@@ -22,6 +22,7 @@ module QuetzalDb
                 instance_eval(&resource.master_user_password)
                 instance_eval(&resource.master_user_name)
                 instance_eval(&resource.security_groups)
+                instance_eval(&resource.subnet_group)
 
                 resource.properties.each do |property, value|
                   Property property, value
@@ -58,6 +59,15 @@ module QuetzalDb
               Property 'VPCSecurityGroups', [
                 FnGetAtt(::QuetzalDb::Cfn::Config[:TargetSecurityGroup][:resource_name], :GroupId)
               ]
+            end
+          end
+
+          # @return [Proc]
+          def subnet_group
+            config = ::QuetzalDb::Cfn::Config
+
+            proc do
+              Property 'DBSubnetGroupName', Ref(config[:QuetzalDbSubnetGroup][:resource_name])
             end
           end
         end
