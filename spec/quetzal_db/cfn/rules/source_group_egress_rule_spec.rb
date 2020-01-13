@@ -11,15 +11,10 @@ RSpec.describe 'QuetzalDb::Cfn::SourceGroup::Egress' do
     {
       'Type' => 'AWS::EC2::SecurityGroupEgress',
       'Properties' => {
-        'IpProtocol' => 'tcp',
-        'FromPort' => 0,
-        'ToPort' => 65_535,
-        'DestinationSecurityGroupId' => {
-          'Fn::GetAtt' => %w[
-            QuetzalDbTargetGroup
-            GroupId
-          ]
-        },
+        'CidrIp' => '0.0.0.0/0',
+        'IpProtocol' => -1,
+        'FromPort' => -1,
+        'ToPort' => -1,
         'GroupId' => {
           'Fn::GetAtt' => %w[
             QuetzalDbAccessGroup

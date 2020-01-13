@@ -1,0 +1,39 @@
+PublicSubnetRouteTable:
+  resource_name: PublicSubnetRouteTable
+  tags:
+    Name: Public Subnet
+
+PrivateSubnetRouteTable:
+  resource_name: PrivateSubnetRouteTable
+  tags:
+    Name: Private Lambda Subnet
+
+PublicSubnetRouteTableAssociation:
+  resource_name: PublicSubnetRouteTableAssociation
+  route_table: PublicSubnetRouteTable
+  subnet: PublicSubnetId
+
+PrivateSubnetRouteTableAssociation:
+  resource_name: PrivateSubnetRouteTableAssociation
+  route_table: PrivateSubnetRouteTable
+  subnet: PrivateSubnetId
+
+DefaultPublicRoute:
+  resource_name: DefaultPublicRoute
+  route_table: PublicSubnetRouteTable 
+  target:
+    target_type: GatewayId
+    target_value: InternetGatewayId
+  destination:
+    destination_type: DestinationCidrBlock
+    destination_value: 0.0.0.0/0
+
+NATPrivateRoute :
+  resource_name: NATPrivateRoute
+  route_table: PrivateSubnetRouteTable 
+  target:
+    target_type: NatGatewayId
+    target_value: QuetzalNATGateway 
+  destination:
+    destination_type: DestinationCidrBlock
+    destination_value: 0.0.0.0/0

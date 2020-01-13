@@ -3,3 +3,13 @@ Parameters:
     parameters:
       Stage:
         type: String
+      VpcId:
+        type: String
+      SubnetIds:
+        type: CommaDelimitedList 
+      PublicSubnetId:
+        type: String
+      PrivateSubnetId:
+        type: String
+      InternetGatewayId:
+        type: String

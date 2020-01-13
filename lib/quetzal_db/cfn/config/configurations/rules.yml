@@ -12,6 +12,7 @@ AccessSecurityGroupEgress:
   target_group: TargetSecurityGroup
   source_group: SourceSecurityGroup
   properties:
-    IpProtocol: tcp
-    FromPort: 0
-    ToPort: 65_535
+    IpProtocol: -1
+    FromPort: -1
+    ToPort: -1
+    CidrIp: 0.0.0.0/0

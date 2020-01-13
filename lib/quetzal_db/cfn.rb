@@ -16,6 +16,7 @@ module QuetzalDb
       autoload :SecurityGroupIngress, 'quetzal_db/cfn/security_group_ingress'
       autoload :SecurityGroupEgress, 'quetzal_db/cfn/security_group_egress'
       autoload :Mappings, 'quetzal_db/cfn/mappings'
+      autoload :EC2, 'quetzal_db/cfn/ec2'
       autoload :Outputs, 'quetzal_db/cfn/outputs'
       autoload :Create, 'quetzal_db/cfn/create'
       autoload :Update, 'quetzal_db/cfn/update'

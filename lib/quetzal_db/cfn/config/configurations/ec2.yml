@@ -1,0 +1,9 @@
+EC2:
+  submodules:
+    EIP:
+      resource_name: QuetzalElasticIp
+      domain: vpc
+    NATGateway:
+      resource_name: QuetzalNATGateway
+      subnet: PublicSubnetId
+      elastic_ip: QuetzalElasticIp

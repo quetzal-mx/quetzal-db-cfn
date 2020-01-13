@@ -48,7 +48,10 @@ RSpec.describe QuetzalDb::Cfn::RDS::QuetzalDb do
         },
         'VPCSecurityGroups' => [{
           'Fn::GetAtt' => %w[QuetzalDbTargetGroup GroupId]
-        }]
+        }],
+        'DBSubnetGroupName' => {
+          'Ref' => 'QuetzalDbSubnetGroup'
+        }
       }
     }
   end

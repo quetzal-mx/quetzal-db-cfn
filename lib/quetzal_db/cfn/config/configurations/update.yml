@@ -9,6 +9,8 @@ Update:
       - QuetzalDb::Cfn::RDS::QuetzalDb
       - QuetzalDb::Cfn::Mappings
       - QuetzalDb::Cfn::Outputs
+      - QuetzalDb::Cfn::EC2::EIP
+      - QuetzalDb::Cfn::EC2::NATGateway
       - class: QuetzalDb::Cfn::SecurityGroup
         config: SourceSecurityGroup
       - class: QuetzalDb::Cfn::SecurityGroup
@@ -17,3 +19,17 @@ Update:
         config: TargetSecurityGroupIngress
       - class: QuetzalDb::Cfn::SecurityGroupEgress
         config: AccessSecurityGroupEgress
+      - class: QuetzalDb::Cfn::EC2::RouteTable
+        config: PublicSubnetRouteTable
+      - class: QuetzalDb::Cfn::EC2::RouteTable
+        config: PrivateSubnetRouteTable
+      - class: QuetzalDb::Cfn::RDS::SubnetGroup
+        config: QuetzalDbSubnetGroup
+      - class: QuetzalDb::Cfn::EC2::RouteTableAssociation
+        config: PublicSubnetRouteTableAssociation
+      - class: QuetzalDb::Cfn::EC2::RouteTableAssociation
+        config: PrivateSubnetRouteTableAssociation
+      - class: QuetzalDb::Cfn::EC2::Route
+        config: DefaultPublicRoute
+      - class: QuetzalDb::Cfn::EC2::Route
+        config: NATPrivateRoute
