@@ -2,7 +2,6 @@ Update:
   config:
     resources:
       - QuetzalDb::Cfn::Parameters
-      - QuetzalDb::Cfn::SecretsManager::RootSecret
       - QuetzalDb::Cfn::SecretsManager::TargetAttachment
       - QuetzalDb::Cfn::RDS::QuetzalDb
       - QuetzalDb::Cfn::Mappings
@@ -35,3 +34,5 @@ Update:
         config: DDLSecret
       - class: QuetzalDb::Cfn::SecretsManager::Secret
         config: DMLSecret
+      - class: QuetzalDb::Cfn::SecretsManager::Secret
+        config: RootSecret 

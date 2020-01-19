@@ -13,11 +13,12 @@ module QuetzalDb
 
           # @return [Proc]
           def generate
+            resource = self
+            config = ::QuetzalDb::Cfn::Config
             proc do
-              resource = ::QuetzalDb::Cfn::SecretsManager::TargetAttachment
               Resource resource.resource_name do
                 Type 'AWS::SecretsManager::SecretTargetAttachment'
-                Property 'SecretId', Ref(::QuetzalDb::Cfn::SecretsManager::RootSecret.resource_name)
+                Property 'SecretId', Ref(config[:RootSecret][:resource_name])
                 Property 'TargetId', Ref(::QuetzalDb::Cfn::RDS::QuetzalDb.resource_name)
                 Property 'TargetType', 'AWS::RDS::DBInstance'
               end

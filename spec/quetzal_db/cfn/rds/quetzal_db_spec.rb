@@ -51,7 +51,8 @@ RSpec.describe QuetzalDb::Cfn::RDS::QuetzalDb do
         }],
         'DBSubnetGroupName' => {
           'Ref' => 'QuetzalDbSubnetGroup'
-        }
+        },
+        'PubliclyAccessible' => true
       }
     }
   end

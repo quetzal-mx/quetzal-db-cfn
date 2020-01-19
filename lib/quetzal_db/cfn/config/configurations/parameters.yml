@@ -17,3 +17,5 @@ Parameters:
         type: String
       DMLUser:
         type: String
+      RootUser:
+        type: String
