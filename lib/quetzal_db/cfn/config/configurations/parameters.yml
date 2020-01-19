@@ -13,3 +13,7 @@ Parameters:
         type: String
       InternetGatewayId:
         type: String
+      DDLUser:
+        type: String
+      DMLUser:
+        type: String

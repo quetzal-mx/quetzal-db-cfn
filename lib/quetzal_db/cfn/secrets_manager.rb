@@ -8,9 +8,8 @@ module QuetzalDb
 
       eager_autoload do
         autoload :RootSecret
-        autoload :DDLSecret
-        autoload :DMLSecret
         autoload :TargetAttachment
+        autoload :Secret
       end
 
       eager_load!

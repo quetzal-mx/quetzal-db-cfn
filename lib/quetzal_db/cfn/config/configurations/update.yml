@@ -3,8 +3,6 @@ Update:
     resources:
       - QuetzalDb::Cfn::Parameters
       - QuetzalDb::Cfn::SecretsManager::RootSecret
-      - QuetzalDb::Cfn::SecretsManager::DDLSecret
-      - QuetzalDb::Cfn::SecretsManager::DMLSecret
       - QuetzalDb::Cfn::SecretsManager::TargetAttachment
       - QuetzalDb::Cfn::RDS::QuetzalDb
       - QuetzalDb::Cfn::Mappings
@@ -33,3 +31,7 @@ Update:
         config: DefaultPublicRoute
       - class: QuetzalDb::Cfn::EC2::Route
         config: NATPrivateRoute
+      - class: QuetzalDb::Cfn::SecretsManager::Secret
+        config: DDLSecret
+      - class: QuetzalDb::Cfn::SecretsManager::Secret
+        config: DMLSecret
